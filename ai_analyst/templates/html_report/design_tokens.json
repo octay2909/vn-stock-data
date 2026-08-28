@@ -1,0 +1,58 @@
+{
+  "layout": {
+    "max_width": "1200px",
+    "section_gap": "48px",
+    "card_gap": "24px",
+    "chart_height": "400px"
+  },
+  "colors": {
+    "navy": "#0F1729",
+    "navy2": "#162035",
+    "off_white": "#F5F5F0",
+    "warm_white": "#F7F6F2",
+    "blue": "#2554E7",
+    "purple": "#9333EA",
+    "green": "#10B981",
+    "orange": "#F97316",
+    "red": "#EF4444",
+    "amber": "#F59E0B",
+    "border": "#E2E8F0",
+    "bg_surface": "#F8FAFC",
+    "bg_chart": "#F7F6F2",
+    "text_primary": "#1A202C",
+    "text_muted": "#64748B",
+    "text_light": "#94A3B8",
+    "highlight": "#2554E7",
+    "gray": "#D1D5DB"
+  },
+  "section_colors": {
+    "descriptive": "#2554E7",
+    "diagnostic": "#9333EA",
+    "predictive": "#10B981",
+    "prescriptive": "#F97316"
+  },
+  "status_colors": {
+    "alert": {"bg": "rgba(239,68,68,0.1)", "text": "#EF4444"},
+    "good": {"bg": "rgba(16,185,129,0.1)", "text": "#10B981"},
+    "flat": {"bg": "rgba(100,116,139,0.1)", "text": "#64748B"},
+    "warning": {"bg": "rgba(245,158,11,0.1)", "text": "#F59E0B"}
+  },
+  "radius": {"lg": "16px", "md": "12px", "sm": "8px", "xs": "4px"},
+  "shadows": {
+    "sm": "0 1px 2px rgba(0,0,0,0.05)",
+    "md": "0 4px 6px rgba(0,0,0,0.07)",
+    "lg": "0 10px 15px rgba(0,0,0,0.1)"
+  },
+  "typography": {
+    "heading_font": "'Outfit', -apple-system, BlinkMacSystemFont, sans-serif",
+    "body_font": "'IBM Plex Sans', system-ui, sans-serif",
+    "mono_font": "'IBM Plex Mono', Menlo, Consolas, monospace",
+    "sizes": {
+      "report_title": "28px", "section_title": "22px", "card_title": "16px",
+      "body": "14px", "subtitle": "13px", "caption": "11px",
+      "kpi_value": "36px", "kpi_label": "11px", "kpi_delta": "13px"
+    },
+    "weights": {"bold": 700, "semibold": 600, "medium": 500, "regular": 400}
+  },
+  "transitions": {"fast": "150ms ease", "normal": "250ms ease"}
+}

@@ -1,0 +1,119 @@
+# Pipeline Execution Plan Definitions
+# Defines available analysis pipelines, their steps, and selection logic.
+# Used by the orchestrator to determine which skills to run in sequence.
+
+version: 1
+
+plans:
+  full:
+    description: "End-to-end: descriptive + diagnostic + predictive + report"
+    trigger_keywords: ["full analysis", "everything", "complete", "end-to-end"]
+    question_level: "L4"
+    chain:
+      - data_prep
+      - validate
+      - descriptive
+      - diagnostic
+      - predictive
+      - report
+
+  analysis_only:
+    description: "Descriptive + Diagnostic analysis (no prediction)"
+    trigger_keywords: ["why", "root cause", "what happened", "diagnose"]
+    question_level: "L2"
+    chain:
+      - data_prep
+      - validate
+      - descriptive
+      - diagnostic
+      - report
+
+  predict_only:
+    description: "Predictive pipeline from existing clean data"
+    trigger_keywords: ["predict", "forecast", "what will happen", "next quarter"]
+    question_level: "L3"
+    chain:
+      - validate
+      - descriptive
+      - predictive
+      - report
+
+  describe_only:
+    description: "Quick descriptive overview"
+    trigger_keywords: ["summarize", "overview", "what happened", "how did we do"]
+    question_level: "L1"
+    chain:
+      - data_prep
+      - validate
+      - descriptive
+      - report
+
+  report_only:
+    description: "Re-generate report from existing pipeline outputs"
+    trigger_keywords: ["regenerate report", "new format", "make slides from this"]
+    question_level: null
+    chain:
+      - report
+
+# Step definitions — maps step names to skills/agents
+steps:
+  data_prep:
+    skill: "data-prep"
+    description: "Load, clean, and prepare data for analysis"
+    output: "clean_data.json"
+    timeout: 120
+
+  validate:
+    skill: "data-validate"
+    description: "Run 4-layer validation + confidence scoring"
+    output: "validation_report.json"
+    timeout: 60
+    halt_on_fail: true
+
+  descriptive:
+    skill: "descriptive-analysis"
+    description: "KPIs, trends, segments, waterfall decomposition"
+    output: "descriptive_output.json"
+    timeout: 180
+
+  diagnostic:
+    skill: "diagnostic-analysis"
+    description: "Root cause analysis, hypothesis testing"
+    output: "diagnostic_output.json"
+    timeout: 180
+
+  predictive:
+    agent: "predictive-orchestrator"
+    description: "Forecasting, regression, classification (parallel models)"
+    output: "predictive_output.json"
+    timeout: 600
+    parallel_models: true
+
+  report:
+    skill: "report-generate"
+    description: "Generate HTML interactive report or PPTX slide deck"
+    output: "final_report"
+    timeout: 120
+
+# Global defaults
+defaults:
+  output_format: "ask"       # Ask user if not specified (html, pptx, both)
+  theme: "analytics"         # Base theme name
+  halt_on_confidence: "D"    # Halt pipeline if confidence grade <= this
+  max_parallel_models: 3     # Max concurrent model training threads
+  pipeline_dir: "data/pipeline"  # Root directory for pipeline outputs
+  checkpoint_enabled: true   # Enable checkpoint/resume
+
+# Bypass mode — for testing/development
+# Activated by: --bypass flag, or "bypass" in user message, or bypass: true in run_context
+bypass:
+  enabled: false             # Set to true to activate globally
+  description: "Skip confirmations and relax halt conditions for rapid testing"
+  overrides:
+    skip_blueprint_confirmation: true    # Don't wait for user "yes" at Phase 0
+    skip_quality_gate: false             # Still run QA but don't block on REVISE
+    relax_halt_threshold: "F"            # Only halt on F (not D) — allows weaker data through
+    force_output_format: "html"          # Don't ask — default to HTML
+    skip_audience_adaptation: true       # Skip audience tuning — use raw narrative
+    max_pipeline_timeout: 900            # Extended timeout for full pipeline (seconds)
+    log_level: "verbose"                 # Extra logging for debugging

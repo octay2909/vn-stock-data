@@ -1,0 +1,122 @@
+# Base theme — custom brand palette
+# Brand themes inherit from and override these defaults.
+# theme_loader.py deep-merges brand overrides onto this base at runtime.
+
+theme:
+  name: "analytics"
+  display_name: "Analytics (Custom Brand)"
+  version: "3.0"
+  description: "Custom brand palette. Inter font, dark/light backgrounds, SWD-compliant."
+
+colors:
+  # ── Primary brand colors ───────────────────────────────────────────────────
+  dk1:        "#080F1E"       # darkest text / heading on light BG
+  lt1:        "#FFFFFF"       # primary background (light slides)
+  dk2:        "#1A3FCC"       # blue dark — buttons, gradients, cover band
+  lt2:        "#F8FAFC"       # very light gray — secondary panels
+  accent1:    "#2B4EFF"       # blue — primary emphasis, badge, Ridge
+  accent2:    "#EF4444"       # red — error, removed, high risk
+  accent3:    "#34D399"       # green — good result, annotation
+  accent4:    "#7C3AED"       # purple — Lasso, Part 3, Classification
+  accent5:    "#0D9488"       # teal — success, good fit, accuracy
+  accent6:    "#FF6B2B"       # orange — warning, underfitting/overfitting
+
+  # ── Semantic aliases (used by chart renderer and skills) ──────────────────
+  background:    "#FFFFFF"    # Chart + slide panel background
+  text:          "#080F1E"    # Heading text
+  text_light:    "#64748B"    # Muted sub-text, axis ticks
+  border:        "#E2E8F0"    # Axis spines, dividers
+
+  # ── SWD section highlight colors (semantic — not brand) ───────────────────
+  # Used by render_charts_swd.py to signal which pipeline section a chart belongs to.
+  highlight:
+    descriptive:  "#2B4EFF"   # blue — "What happened"
+    diagnostic:   "#EF4444"   # red  — "Why it happened"
+    predictive:   "#34D399"   # green — "What's next"
+    event:        "#FF6B2B"   # orange — anomaly markers
+    gray:         "#D1D5DB"   # non-highlighted series (SWD neutral)
+
+  # ── Status / semantic colors ──────────────────────────────────────────────
+  amber:    "#F59E0B"         # highlight, caution, Zap icon
+  yellow:   "#FBBF24"         # ROI, lightbulb
+  white:    "#FFFFFF"         # text on dark backgrounds
+
+  # ── Categorical palette (8, colorblind-safe) ──────────────────────────────
+  categorical:
+    - "#2B4EFF"   # blue primary
+    - "#34D399"   # green
+    - "#7C3AED"   # purple
+    - "#EF4444"   # red
+    - "#FF6B2B"   # orange
+    - "#0D9488"   # teal
+    - "#1A3FCC"   # blue dark
+    - "#64748B"   # muted gray
+
+  # ── Sequential palette (heatmaps, density) ────────────────────────────────
+  sequential:
+    low:  "#DBEAFE"           # light blue tint
+    mid:  "#2B4EFF"           # accent1 blue
+    high: "#1A3FCC"           # blue dark
+
+  # ── Diverging palette (positive/negative) ─────────────────────────────────
+  diverging:
+    negative: "#EF4444"       # red
+    neutral:  "#FFFFFF"       # white midpoint
+    positive: "#34D399"       # green
+
+typography:
+  # ── Custom brand fonts ────────────────────────────────────────────────────
+  font_family:    "Inter, Segoe UI, Arial, sans-serif"
+  heading_font:   "Inter, Segoe UI, Arial, sans-serif"
+  body_font:      "Inter, Segoe UI, Arial, sans-serif"
+  monospace_font: "JetBrains Mono, Consolas, Courier New, monospace"
+  sizes:          # Font sizes in points
+    title:        11          # Chart/slide titles (SWD: concise)
+    subtitle:     10          # Supporting context line
+    body:          9          # Default body text
+    caption:       8          # Source citations, footnotes
+    annotation:    8          # Data callouts on charts
+    axis_label:    8          # Axis names
+    tick_label:    8          # Axis tick values
+  weights:
+    title:        "bold"
+    subtitle:     "normal"
+    body:         "normal"
+    emphasis:     "bold"
+
+charts:
+  # ── SWD-compliant chart defaults ──────────────────────────────────────────
+  figure:
+    figsize_split: [8.0, 3.8]   # 2-col PPTX panel
+    figsize_full:  [11.0, 4.0]  # Full-width slide
+    dpi:           150
+    facecolor:     "#FFFFFF"    # White — SWD rule
+  axes:
+    facecolor:     "#FFFFFF"    # White plot area
+    grid:          false        # No grid (SWD: declutter)
+    spines:
+      top:         false
+      right:       false
+      bottom:      true
+      left:        true
+    spine_color:   "#E2E8F0"    # Light gray spines
+    spine_width:   0.8
+  annotations:
+    max_count:     3            # SWD: never more than 3 per chart
+    font_size:     8
+    color:         "#475569"    # body text color
+
+presentations:
+  slide_width_inches:   13.3   # widescreen 16:9
+  slide_height_inches:   7.5
+  aspect_ratio:         "16:9"
+  background:           "#FFFFFF"
+  text:                 "#080F1E"
+  accent:               "#2B4EFF"   # blue primary
+  dark_band:            "#080F1E"   # dark BG — cover/header band color
+
+export:
+  chart_format:      "png"
+  chart_dpi:         150
+  chart_bbox:        "tight"
+  chart_transparent: false

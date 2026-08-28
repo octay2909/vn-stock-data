@@ -1,0 +1,49 @@
+# Dataset Metrics Configuration
+# Defines KPIs, their directions, thresholds, and relationships.
+# Used by validation, scoring, and reporting modules.
+
+dataset:
+  name: ""
+  description: ""
+
+metrics:
+  # Example metric definition — copy and modify for each KPI
+  # primary_metric:
+  #   display_name: "Revenue"
+  #   column: "revenue"
+  #   type: "currency"           # currency, percentage, count, ratio, duration
+  #   direction: "up_is_good"    # up_is_good, down_is_good, neutral
+  #   format: "${:,.0f}"         # Python format string
+  #   alert_thresholds:
+  #     mom_change: -0.15        # Alert if MoM change worse than -15%
+  #     yoy_change: -0.10        # Alert if YoY change worse than -10%
+  #     absolute_min: 0          # Alert if below this value
+  #   related_metrics:
+  #     - "orders"
+  #     - "aov"
+
+segments:
+  # Define standard segmentation columns
+  # - column: "region"
+  #   display_name: "Region"
+  #   expected_values: ["North", "South", "East", "West"]
+  # - column: "customer_tier"
+  #   display_name: "Customer Tier"
+  #   expected_values: ["Enterprise", "Mid-Market", "SMB"]
+
+waterfall:
+  # Define waterfall decomposition (for revenue/KPI bridges)
+  # baseline: "previous_period_revenue"
+  # components:
+  #   - name: "New Business"
+  #     column: "new_revenue"
+  #     direction: "positive"
+  #   - name: "Expansion"
+  #     column: "expansion_revenue"
+  #     direction: "positive"
+  #   - name: "Contraction"
+  #     column: "contraction_revenue"
+  #     direction: "negative"
+  #   - name: "Churn"
+  #     column: "churned_revenue"
+  #     direction: "negative"

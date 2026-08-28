@@ -1,0 +1,82 @@
+{
+  "slide_dimensions": {"width_inches": 13.33, "height_inches": 7.5, "aspect_ratio": "16:9"},
+
+  "fonts": {
+    "headline_large": {"family": "Calibri", "size_pt": 20, "bold": true},
+    "panel_title": {"family": "Calibri", "size_pt": 14, "bold": true},
+    "body": {"family": "Calibri Light", "size_pt": 12, "bold": false},
+    "body_supporting": {"family": "Calibri Light", "size_pt": 10.5, "bold": false},
+    "breadcrumb": {"family": "Calibri Light", "size_pt": 10, "bold": false},
+    "badge_number": {"family": "Calibri", "size_pt": 12, "bold": true},
+    "kpi_label": {"family": "Calibri", "size_pt": 9, "bold": false},
+    "kpi_value": {"family": "Calibri", "size_pt": 16, "bold": true},
+    "slide_number": {"family": "Calibri", "size_pt": 9, "bold": false}
+  },
+
+  "colors": {
+    "cover_bg": "#0F1729",
+    "content_bg": "#F5F5F0",
+    "panel_bg": "#FFFFFF",
+    "kpi_separator": "#1E293B",
+    "divider": "#E2E8F0",
+    "alert_badge_bg": "#FFF5F5",
+
+    "text_primary": "#111827",
+    "text_body": "#374151",
+    "text_secondary": "#64748B",
+    "text_muted": "#94A3B8",
+    "text_cover_breadcrumb": "#475569",
+    "text_kpi_label": "#334155",
+    "text_kpi_value": "#94A3B8",
+    "text_white": "#FFFFFF",
+
+    "accent_blue": "#2554E7",
+    "accent_orange": "#F97316",
+    "accent_red": "#EF4444",
+    "accent_green": "#22C55E"
+  },
+
+  "zones": {
+    "cover": {
+      "bg_rect": {"x": 0.0, "y": 0.0, "w": 13.33, "h": 7.50},
+      "breadcrumb": {"x": 0.89, "y": 0.38, "w": 7.0, "h": 0.25},
+      "accent_bar": {"x": 0.89, "y": 1.95, "w": 0.55, "h": 0.05},
+      "headline": {"x": 0.89, "y": 2.10, "w": 10.5, "h": 1.0},
+      "subtitle": {"x": 0.89, "y": 3.20, "w": 10.5, "h": 0.5},
+      "kpi_y": 6.25,
+      "kpi_separators_x": [3.19, 5.50, 7.82, 10.13],
+      "kpi_columns_x": [1.10, 3.40, 5.71, 8.02, 10.33]
+    },
+    "content": {
+      "bg_rect": {"x": 0.0, "y": 0.0, "w": 13.33, "h": 7.50},
+      "breadcrumb": {"x": 0.89, "y": 0.41, "w": 8.0, "h": 0.27},
+      "headline": {"x": 0.89, "y": 0.68, "w": 11.56, "h": 0.77},
+      "panels_start_y": 1.59,
+      "panels_height": 5.26,
+      "slide_number": {"x": 12.3, "y": 7.1, "w": 0.8, "h": 0.3}
+    }
+  },
+
+  "grids": {
+    "full": {"cols": [{"x": 0.89, "w": 11.56}]},
+    "two_col": {"cols": [{"x": 0.89, "w": 5.55}, {"x": 6.89, "w": 5.55}]},
+    "three_col": {"cols": [{"x": 0.89, "w": 3.53}, {"x": 5.00, "w": 3.53}, {"x": 9.10, "w": 3.53}]},
+    "four_2x2": {
+      "top": [{"x": 0.89, "w": 5.60}, {"x": 6.80, "w": 5.64}],
+      "bottom": [{"x": 0.89, "w": 5.60}, {"x": 6.80, "w": 5.64}],
+      "row_top_y": 1.59, "row_bottom_y": 4.26, "row_h": 2.43
+    }
+  },
+
+  "shapes": {
+    "panel": {"fill": "#FFFFFF", "corner_radius_emu": 100000},
+    "divider": {"fill": "#E2E8F0", "height_inches": 0.01},
+    "badge_rounded": {"fill": "#2554E7", "size": 0.35, "corner_radius_emu": 80000},
+    "dot_circle": {"size": 0.26},
+    "kpi_separator": {"fill": "#1E293B", "w": 0.01, "h": 1.00},
+    "accent_bar": {"fill": "#2554E7", "h": 0.05},
+    "callout_box": {"fill": "#F5F5F0", "border_color": "#F97316", "border_dashed": true}
+  },
+
+  "chart_image": {"dpi": 150, "full_width": 11.56, "split_width": 5.55, "default_height": 4.2}
+}

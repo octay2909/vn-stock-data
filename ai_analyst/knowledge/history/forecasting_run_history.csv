@@ -1,0 +1,3 @@
+run_date,stem,model,training_months,test_mape_pct,test_mae,test_rmse,beats_baseline,baseline_mape,improvement_pct,forecast_jul_2026,forecast_aug_2026,forecast_sep_2026,forecast_q3_2026,q3_lower_80,q3_upper_80,quality_flag
+2026-05-20,ecommerce_orders_2025-01-01_to_2026-06-30,trend_adjusted_seasonal_naive,16,8.16,4275.96,5572.45,True,15.88,48.6,31853.18,45215.98,37826.65,114895.81,95913.04,133878.58,acceptable
+2026-05-20,ecommerce_orders_2025-01-01_to_2026-06-30,holt_winters_manual,14,8.27,4728.23,7912.86,True,14.14,41.5,54680.24,62349.08,38839.86,155869.18,136380.0,175358.36,good

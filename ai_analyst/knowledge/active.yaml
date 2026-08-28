@@ -1,0 +1,20 @@
+# Active Dataset Pointer
+# Points to the currently active dataset for analysis.
+# Updated automatically when a new dataset is loaded.
+#
+# Usage:
+#   active_dataset = safe_read_yaml("knowledge/active.yaml")
+#   dataset_dir = f"knowledge/datasets/{active_dataset['name']}"
+
+name: ""                    # Dataset directory name (e.g., "sales_2025")
+description: ""             # Brief description of the dataset
+source_file: ""             # Original file path (CSV/Excel)
+loaded_at: ""               # ISO timestamp when loaded
+row_count: 0                # Number of rows
+column_count: 0             # Number of columns
+date_range:
+  start: ""                 # First date in the dataset
+  end: ""                   # Last date in the dataset
+  grain: ""                 # Temporal grain (daily/weekly/monthly/quarterly/yearly)
+primary_metric: ""          # Auto-detected or user-specified primary KPI
+domain: ""                  # Auto-detected domain (saas_revenue, ecommerce, etc.)
